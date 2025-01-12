@@ -53,3 +53,4 @@ Version Control
 This project uses Git for version control, which enables tracking of changes, collaboration, and management of the development process. The project will be uploaded to GitHub to ensure that the latest version of the PWA is always accessible and can be easily shared or deployed.
 
 Output of the project:
+![Screenshot (15)](https://github.com/user-attachments/assets/7788f9d2-3df3-482b-bfa8-48b50db050c6)
