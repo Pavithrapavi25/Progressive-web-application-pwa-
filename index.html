@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce PWA</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #4CAF50;
+      color: white;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+    .gallery-item {
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+    .gallery-item img {
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+      border-radius: 5px;
+    }
+    .gallery-item p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+    .product-price {
+      font-weight: bold;
+      color: #4CAF50;
+    }
+    .add-to-cart {
+      margin-top: 10px;
+      padding: 8px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .add-to-cart:hover {
+      background-color: #45a049;
+    }
+    .notify-btn {
+      margin: 20px auto;
+      display: block;
+      padding: 10px 20px;
+      background-color: #ff5722;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .notify-btn:hover {
+      background-color: #e64a19;
+    }
+    .cart-section {
+      padding: 20px;
+      background-color: #fff;
+      border-top: 1px solid #ddd;
+    }
+    .cart-header {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .cart-item {
+      margin-bottom: 10px;
+    }
+    .cart-item span {
+      display: block;
+      font-size: 14px;
+    }
+    #cart-total {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>E-Commerce Store</h1>
+  </header>
+  <main>
+    <p style="text-align: center;">Welcome to our offline-ready e-commerce platform!</p>
+    <button class="notify-btn" onclick="enableNotifications()">Enable Push Notifications</button>
+    <section class="gallery">
+      <!-- Gallery Items -->
+      <div class="gallery-item">
+        <img src="images/product1.jpg" alt="Trolly">
+        <p>Trolly</p>
+        <p class="product-price">$10.00</p>
+        <button class="add-to-cart" onclick="addToCart('Trolly', '$10.00')">Add to Cart</button>
+      </div>
+      <div class="gallery-item">
+        <img src="images/product2.jpg" alt="Shoes">
+        <p>Shoes</p>
+        <p class="product-price">$20.00</p>
+        <button class="add-to-cart" onclick="addToCart('Shoes', '$20.00')">Add to Cart</button>
+      </div>
+      <div class="gallery-item">
+        <img src="images/product3.jpg" alt="Sweater">
+        <p>Sweater</p>
+        <p class="product-price">$15.00</p>
+        <button class="add-to-cart" onclick="addToCart('Sweater', '$15.00')">Add to Cart</button>
+      </div>
+      <div class="gallery-item">
+        <img src="images/product4.jpg" alt="Clothes">
+        <p>Clothes</p>
+        <p class="product-price">$25.00</p>
+        <button class="add-to-cart" onclick="addToCart('Clothes', '$25.00')">Add to Cart</button>
+      </div>
+      <div class="gallery-item">
+        <img src="images/product5.jpg" alt="Earrings">
+        <p>Earrings</p>
+        <p class="product-price">$30.00</p>
+        <button class="add-to-cart" onclick="addToCart('Earrings', '$30.00')">Add to Cart</button>
+      </div>
+      <div class="gallery-item">
+        <img src="images/product6.jpg" alt="Bracelet">
+        <p>Bracelet</p>
+        <p class="product-price">$18.00</p>
+        <button class="add-to-cart" onclick="addToCart('Bracelet', '$18.00')">Add to Cart</button>
+      </div>
+      <div class="gallery-item">
+        <img src="images/product7.jpg" alt="Goggles">
+        <p>Goggles</p>
+        <p class="product-price">$22.00</p>
+        <button class="add-to-cart" onclick="addToCart('Goggles', '$22.00')">Add to Cart</button>
+      </div>
+      <div class="gallery-item">
+        <img src="images/product8.jpg" alt="Neck Chain">
+        <p>Neck Chain</p>
+        <p class="product-price">$12.00</p>
+        <button class="add-to-cart" onclick="addToCart('Neck Chain', '$12.00')">Add to Cart</button>
+      </div>
+      <div class="gallery-item">
+        <img src="images/product9.jpg" alt="Hat">
+        <p>Hat</p>
+        <p class="product-price">$40.00</p>
+        <button class="add-to-cart" onclick="addToCart('Hat', '$40.00')">Add to Cart</button>
+      </div>
+      <div class="gallery-item">
+        <img src="images/product10.jpg" alt="Backpack">
+        <p>Backpack</p>
+        <p class="product-price">$35.00</p>
+        <button class="add-to-cart" onclick="addToCart('Backpack', '$35.00')">Add to Cart</button>
+      </div>
+    </section>
+    <section class="cart-section">
+      <div class="cart-header">Your Cart</div>
+      <div id="cart-items">
+        <p>Your cart is empty.</p>
+      </div>
+      <div id="cart-total"></div>
+    </section>
+  </main>
+  <script>
+    const cart = [];
+    let totalPrice = 0;
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('Service Worker Registered', reg))
+        .catch(err => console.error('Service Worker Registration Failed:', err));
+    }
+
+    function enableNotifications() {
+      Notification.requestPermission().then(permission => {
+        if (permission === 'granted') {
+          new Notification('Notifications Enabled!', {
+            body: 'You will now receive updates from the store.',
+            icon: 'images/notification-icon.png'
+          });
+        } else {
+          alert('Notifications are disabled!');
+        }
+      });
+    }
+
+    function addToCart(product, price) {
+      const numericPrice = parseFloat(price.replace('$', ''));
+      cart.push({ product, price });
+      totalPrice += numericPrice;
+      updateCartDisplay();
+      alert(`${product} (${price}) has been added to your cart!`);
+    }
+
+    function updateCartDisplay() {
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartTotalContainer = document.getElementById('cart-total');
+
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+        cartTotalContainer.innerHTML = '';
+        return;
+      }
+
+      cartItemsContainer.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <span>Product: ${item.product}</span>
+          <span>Price: ${item.price}</span>
+        </div>
+      `).join('');
+
+      cartTotalContainer.innerHTML = `Total: $${totalPrice.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
